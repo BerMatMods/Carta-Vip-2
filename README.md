@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Carta de Amor - 21/07/25</title>
+  <title>Detalles Virtuales - Crea tu Carta de Amor</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
@@ -38,7 +38,6 @@
       100% { box-shadow: 0 0 15px rgba(255, 105, 180, 0.6); }
     }
 
-    /* Marco brillante general */
     .glow-frame {
       position: relative;
       display: inline-block;
@@ -63,8 +62,82 @@
       transform: scale(1.03);
     }
 
+    /* Pantalla de creación */
+    .create-screen {
+      text-align: center;
+      padding: 1.8rem 2rem;
+      max-width: 460px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 32px;
+      box-shadow: 0 16px 45px rgba(255, 105, 180, 0.25);
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+    }
+
+    .create-screen h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      background: linear-gradient(45deg, #e91e63, #ba68c8, #ff8f00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 1rem 0;
+    }
+
+    .form-group {
+      margin: 1.2rem 0;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      color: #d81b60;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #ff80ab;
+      border-radius: 14px;
+      font-size: 1em;
+      background: #fff9fb;
+      color: #555;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      margin: 1.3rem auto;
+      padding: 0.9rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      background: linear-gradient(45deg, #e91e63, #ba68c8);
+      color: white;
+      border: none;
+      border-radius: 32px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(233, 30, 99, 0.5);
+    }
+
     /* Pantalla de bloqueo */
     .lock-screen {
+      display: none;
       text-align: center;
       padding: 1.8rem 2rem;
       max-width: 440px;
@@ -111,7 +184,6 @@
       font-weight: 500;
     }
 
-    /* Display de clave */
     .key-display {
       font-family: 'Poppins', monospace;
       font-size: 1.8rem;
@@ -126,7 +198,6 @@
       box-shadow: 0 6px 15px rgba(255, 105, 180, 0.2);
     }
 
-    /* Teclado */
     .keypad {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -158,7 +229,6 @@
       box-shadow: 0 3px 8px rgba(233, 30, 99, 0.3);
     }
 
-    /* Botón Iniciar */
     .btn-iniciar {
       margin-top: 1.4rem;
       padding: 0.9rem 2rem;
@@ -177,15 +247,6 @@
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
-    }
-
-    .btn-iniciar:hover {
-      transform: scale(1.08) translateY(-3px);
-      box-shadow: 0 10px 25px rgba(233, 30, 99, 0.5);
-    }
-
-    .btn-iniciar:active {
-      transform: scale(1.03);
     }
 
     /* Contenedor principal - Carta */
@@ -230,7 +291,6 @@
       margin-bottom: 1.4rem;
     }
 
-    /* Letra de la carta: más compacta */
     .letter {
       font-family: 'Dancing Script', cursive;
       font-size: 1.55rem;
@@ -244,7 +304,6 @@
       font-weight: 500;
     }
 
-    /* Botón de galería */
     .btn-gallery {
       display: inline-block;
       margin: 1.4rem auto 1rem;
@@ -267,10 +326,6 @@
       box-shadow: 0 10px 25px rgba(233, 30, 99, 0.6);
     }
 
-    .btn-gallery:active {
-      transform: scale(1.08);
-    }
-
     footer {
       margin-top: 1.4rem;
       font-style: italic;
@@ -278,7 +333,7 @@
       font-size: 1.1rem;
     }
 
-    /* Pantalla de Galería */
+    /* Galería */
     .gallery-screen {
       display: none;
       flex-direction: column;
@@ -448,7 +503,6 @@
       50% { opacity: 1; }
     }
 
-    /* By AnthZz Berrocal */
     .credit {
       margin-top: 1.3rem;
       font-size: 0.7rem;
@@ -457,8 +511,9 @@
       text-align: center;
     }
 
+    /* Responsive */
     @media (max-width: 480px) {
-      .lock-screen, .main-container, .gallery-screen {
+      .create-screen, .lock-screen, .main-container, .gallery-screen {
         padding: 1.4rem;
         max-width: 98%;
       }
@@ -476,10 +531,6 @@
         font-size: 1.15rem;
         padding: 0.8rem 1.8rem;
       }
-
-      .gallery-thumbnails {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
   </style>
 </head>
@@ -496,19 +547,55 @@
         heart.style.left = Math.random() * 90 + 5 + 'vw';
         heart.style.bottom = '0';
         document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 18000);
+        setTimeout(() => heart.remove(), 18000);
       }, 2500);
     }
     createHearts();
   </script>
 
-  <!-- Pantalla de bloqueo -->
-  <div id="lockScreen" class="lock-screen">
+  <!-- Pantalla de creación -->
+  <div id="createScreen" class="create-screen">
+    <h2>✨ Crea tu Detalle Virtual</h2>
+    <p>Rellena todo y genera tu link personalizado</p>
+
+    <div class="form-group">
+      <label>💌 Para: Nombre de tu amor</label>
+      <input type="text" id="nombreElla" placeholder="Ej: María" />
+    </div>
+
+    <div class="form-group">
+      <label>👨‍❤️‍💋‍👨 De: Tu nombre</label>
+      <input type="text" id="nombreYo" placeholder="Ej: Juan" />
+    </div>
+
+    <div class="form-group">
+      <label>✍️ Tu mensaje (puedes usar saltos de línea)</label>
+      <textarea id="mensaje" placeholder="Mi amor, desde que te conocí..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>🔐 Código de acceso (ej: 12/25)</label>
+      <input type="text" id="codigoAcceso" placeholder="Ej: 14/02" value="14/02" />
+    </div>
+
+    <div class="form-group">
+      <label>🖼️ URL de foto principal</label>
+      <input type="url" id="fotoPrincipal" placeholder="https://ejemplo.com/foto.jpg" />
+    </div>
+
+    <div class="form-group">
+      <label>🖼️ URLs de fotos para galería (una por línea)</label>
+      <textarea id="fotosGaleria" placeholder="https://ejemplo.com/foto1.jpg
+https://ejemplo.com/foto2.jpg"></textarea>
+    </div>
+
+    <button onclick="generarLink()">Generar Link 🌟</button>
+  </div>
+
+  <!-- Pantalla de bloqueo (se mostrará después) -->
+  <div id="lockScreen" class="lock-screen" style="display:none;">
     <h2>🔐 Tu Carta Mi Amor</h2>
-    <p>👇INGRESA EL CÓDIGO DE ACCESO 👇</p>
+    <p>👇 INGRESA EL CÓDIGO DE ACCESO 👇</p>
 
     <div class="glow-frame">
       <img src="https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyZTAxbHV0Mm1rYmI2emc3ZmdvcGdka2szMGMzMHl4ZXlhcmEzN3A4cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y62ofc4S1Vst2/giphy.gif" alt="Corazones flotando" />
@@ -541,38 +628,31 @@
   <!-- Carta principal -->
   <div id="mainContainer" class="main-container">
     <div class="letter-frame">
-      <h1>Para Ti Amorcita Hermosa💖</h1>
+      <h1 id="tituloCarta"></h1>
       <div id="letter" class="letter"></div>
 
-      <!-- Foto principal centrada -->
       <div class="glow-frame" style="margin: 1.4rem auto; max-width: 400px; display: flex; justify-content: center;">
-        <img src="https://i.postimg.cc/RFcd9YQW/IMG-20250901-WA0112.jpg" alt="Foto principal de Paul y Yanina" />
+        <img id="fotoPrincipalMostrada" src="" alt="Foto principal" />
       </div>
 
       <button class="btn-gallery" onclick="openGallery()">Ver nuestras fotos 📸</button>
-      <footer>Con todo mi corazón, Te dedico ésto para usted.</footer>
+      <footer id="firmaCarta"></footer>
     </div>
-
-    <p class="credit">By AnthZz Berrocal</p>
+    <p class="credit">By AnthZz Berrocal BerMatMods</p>
   </div>
 
-  <!-- Tercera pantalla: Galería -->
+  <!-- Galería -->
   <div id="galleryScreen" class="gallery-screen">
-    <h2 class="gallery-title">✨ Nuestra Galería Mi Reina💖</h2>
+    <h2 class="gallery-title">✨ Nuestra Galería</h2>
 
     <div class="glow-frame gallery-main-img">
-      <img src="https://i.postimg.cc/RFcd9YQW/IMG-20250901-WA0112.jpg" alt="Foto grande" style="width: 100%; border-radius: 18px;" onclick="zoomImage(this)" />
+      <img id="mainGalleryImg" src="" style="width: 100%; border-radius: 18px;" onclick="zoomImage(this)" />
     </div>
 
-    <div class="gallery-thumbnails">
-      <div class="glow-frame"><img src="https://i.postimg.cc/DyVhx4m5/IMG-20250901-WA0109.jpg" class="gallery-img" onclick="zoomImage(this)" /></div>
-      <div class="glow-frame"><img src="https://i.postimg.cc/brc59bLt/IMG-20250901-WA0110.jpg" class="gallery-img" onclick="zoomImage(this)" /></div>
-      <div class="glow-frame"><img src="https://i.postimg.cc/NMTJFFYf/IMG-20250901-WA0111.jpg" class="gallery-img" onclick="zoomImage(this)" /></div>
-      <div class="glow-frame"><img src="https://i.postimg.cc/xTj5Dtkd/IMG-20250901-WA0107.jpg" class="gallery-img" onclick="zoomImage(this)" /></div>
-    </div>
+    <div class="gallery-thumbnails" id="thumbnailsContainer"></div>
 
     <button class="btn-iniciar" style="margin-top: 1.8rem;" onclick="closeGallery()">Volver a la carta</button>
-    <p class="credit">By AnthZz Berrocal</p>
+    <p class="credit">By AnthZz Berrocal BerMatMods</p>
   </div>
 
   <!-- Modal de zoom -->
@@ -580,7 +660,7 @@
     <img id="zoomedImage" src="" />
   </div>
 
-  <!-- Cuadro de error -->
+  <!-- Error -->
   <div id="errorModal" class="error-modal">
     <div class="error-content">
       <div class="close-error" onclick="cerrarError()">×</div>
@@ -591,94 +671,71 @@
 
   <script>
     let input = '';
-    const correctKey = '21/07/25';
-    const nombreYo = 'Paul';
-    const nombreElla = 'Yanina';
+    let data = {};
 
     function addDigit(digit) {
-      if (input.length < 8) {
+      if (input.length < 10) {
         input += digit;
-        updateDisplay();
+        document.getElementById('display').textContent = input;
       }
     }
 
     function clearInput() {
       input = '';
-      updateDisplay();
-    }
-
-    function updateDisplay() {
-      document.getElementById('display').textContent = input;
-    }
-
-    function submitKey() {
-      if (input === correctKey) {
-        document.getElementById('lockScreen').style.display = 'none';
-        document.getElementById('mainContainer').style.display = 'block';
-        typeWriter();
-      } else {
-        document.getElementById('errorModal').classList.add('active');
-        clearInput();
-      }
+      document.getElementById('display').textContent = '';
     }
 
     function cerrarError() {
       document.getElementById('errorModal').classList.remove('active');
     }
 
-    function typeWriter() {
-      const letterElement = document.getElementById('letter');
-      letterElement.textContent = '';
-      letterElement.style.opacity = 1;
-      
-      let i = 0;
-      const message = getMessage();
-      const speed = 35;
+    function submitKey() {
+      if (input === data.codigoAcceso) {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('mainContainer').style.display = 'block';
+        mostrarCarta();
+      } else {
+        document.getElementById('errorModal').classList.add('active');
+        clearInput();
+      }
+    }
 
+    function mostrarCarta() {
+      document.getElementById('tituloCarta').textContent = `Para Ti ${data.nombreElla} 💖`;
+      document.getElementById('firmaCarta').textContent = `Con todo mi corazón, ${data.nombreYo}`;
+      document.getElementById('fotoPrincipalMostrada').src = data.fotoPrincipal;
+
+      const letter = document.getElementById('letter');
+      letter.textContent = '';
+      let i = 0;
+      const speed = 35;
       function type() {
-        if (i < message.length) {
-          letterElement.textContent += message.charAt(i);
+        if (i < data.mensaje.length) {
+          letter.textContent += data.mensaje.charAt(i);
           i++;
           setTimeout(type, speed);
         }
       }
-
       setTimeout(type, 300);
     }
 
-    function getMessage() {
-      return `Mi amor ${nombreElla},
-
-Hoy quiero que sepas, con cada latido de mi corazón,
-que eres la persona más hermosa, dulce y especial
-que he tenido la fortuna de conocer.
-
-Desde que llegaste a mi vida, todo tiene más color,
-más sentido, más magia. Tus risas son mi melodía favorita,
-tu mirada, mi refugio, y tu amor, mi mayor bendición.
-
-Cada día contigo es un regalo que agradezco profundamente.
-No hay palabras suficientes para describir lo que siento,
-pero si pudiera dibujarlo, sería un cielo lleno de estrellas,
-un jardín lleno de tulipanes, con cada color representa los 
-sentimientos que tenemos el uno por el otro.
-
-Gracias por ser tú, por amarme como soy,
-por entenderme sin necesidad de palabras,
-por abrazarme incluso cuando no lo merezco.
-
-Te amo más de lo que las palabras pueden decir,
-más de lo que el tiempo puede medir,
-más de lo que el universo puede contener.
-
-Siempre serás mi hogar, mi sueño, mi razón.
-
-Con todo mi amor y cariño,
-Atte:
-${nombreYo} 💖`;
-    }
-
     function openGallery() {
+      const fotos = data.fotosGaleria.split('\n').filter(f => f.trim() !== '');
+      if (fotos.length > 0) {
+        document.getElementById('mainGalleryImg').src = fotos[0];
+        const thumbs = document.getElementById('thumbnailsContainer');
+        thumbs.innerHTML = '';
+        fotos.forEach(foto => {
+          const div = document.createElement('div');
+          div.className = 'glow-frame';
+          const img = document.createElement('img');
+          img.src = foto;
+          img.className = 'gallery-img';
+          img.onclick = () => document.getElementById('mainGalleryImg').src = foto;
+          div.appendChild(img);
+          thumbs.appendChild(div);
+        });
+      }
       document.getElementById('mainContainer').style.display = 'none';
       document.getElementById('galleryScreen').style.display = 'flex';
     }
@@ -689,15 +746,52 @@ ${nombreYo} 💖`;
     }
 
     function zoomImage(img) {
-      const modal = document.getElementById('zoomModal');
-      const zoomImg = document.getElementById('zoomedImage');
-      zoomImg.src = img.src;
-      modal.style.display = 'flex';
+      document.getElementById('zoomedImage').src = img.src;
+      document.getElementById('zoomModal').style.display = 'flex';
     }
 
     function closeZoom() {
       document.getElementById('zoomModal').style.display = 'none';
     }
+
+    // Generar link
+    function generarLink() {
+      const nombreElla = document.getElementById('nombreElla').value.trim();
+      const nombreYo = document.getElementById('nombreYo').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const codigoAcceso = document.getElementById('codigoAcceso').value.trim();
+      const fotoPrincipal = document.getElementById('fotoPrincipal').value.trim() || 'https://via.placeholder.com/400x300?text=Foto+Principal';
+      const fotosGaleria = document.getElementById('fotosGaleria').value.trim() || '';
+
+      if (!nombreElla || !nombreYo || !mensaje || !codigoAcceso) {
+        alert('Completa todos los campos');
+        return;
+      }
+
+      data = { nombreElla, nombreYo, mensaje, codigoAcceso, fotoPrincipal, fotosGaleria };
+      const id = Math.random().toString(36).substr(2, 6);
+      localStorage.setItem('detalle_' + id, JSON.stringify(data));
+
+      const link = `${window.location.href.split('#')[0]}#${id}`;
+      alert(`✅ Link generado:\n\n${link}\n\nPuedes copiarlo y enviarlo por WhatsApp.`);
+      prompt('Link para compartir:', link);
+    }
+
+    // Cargar detalle si hay hash
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const saved = localStorage.getItem('detalle_' + hash);
+        if (saved) {
+          data = JSON.parse(saved);
+          document.getElementById('createScreen').style.display = 'none';
+          document.getElementById('lockScreen').style.display = 'block';
+          document.getElementById('display').textContent = '';
+        } else {
+          alert('❌ Detalle no encontrado. Puede que haya sido eliminado.');
+        }
+      }
+    });
   </script>
 </body>
 </html>
